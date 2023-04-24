@@ -1,0 +1,11 @@
+.header{
+    position: fixed;
+    background-color: #111;
+    color: #efefef;
+    height: 25px;
+    width: 100vw;
+    top: 0;
+}
+h4{
+    margin: 0 10px;
+}
