@@ -6,6 +6,7 @@ export default function Calculator() {
 
     const addList = (v) =>{
         carList[0] == "Operação inválida" && setCarList([])
+        isNaN(v) && (isNaN(carList[carList.length -1]) && backList())
         setCarList((prevState) => [...prevState, v])
     }
     const clearList = () =>{
@@ -29,11 +30,11 @@ export default function Calculator() {
     return (
         <div className={styles.container}>
             <div className={styles.screen}>
-                {carList}
+                {carList.join("")}
             </div>
             <div className={styles.keyboard}>
                 <button className={styles.numButtons} onClick={clearList}>C</button>
-                <button className={styles.numButtons} onClick={() => addList("%")}>%</button>
+                <button className={styles.numButtons} onClick={() => addList("/100*")}>%</button>
                 <button className={styles.numButtons} onClick={backList}>←</button>
                 <button className={styles.numButtons} onClick={() => addList("/")}>/</button>
                 <button className={styles.numButtons} onClick={() => addList("7")}>7</button>
@@ -48,7 +49,7 @@ export default function Calculator() {
                 <button className={styles.numButtons} onClick={() => addList("2")}>2</button>
                 <button className={styles.numButtons} onClick={() => addList("3")}>3</button>
                 <button className={styles.numButtons} onClick={() => addList("+")}>+</button>
-                <button className={styles.numButtons} >+/-</button>
+                <button className={styles.numButtons} onClick={() => addList("*(-1)")}>+/-</button>
                 <button className={styles.numButtons} onClick={() => addList("0")}>0</button>
                 <button className={styles.numButtons} onClick={() => addList(".")}>,</button>
                 <button className={styles.numButtons} onClick={solve}>=</button>
